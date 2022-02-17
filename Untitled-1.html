@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <form class="form" onsubmit="return verif()" action="suc.html" id="form">
+        <label for="nom">Name: </label>
+        <input type="text" id="nom"><br>
+        <label for="prenom">Familyname: </label>
+        <input type="text" id="prenom" required><br>
+        <label for="email">Email: </label>
+        <input type="text" id="email" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+        <br>
+        <label for="verify_password">Verify Password:</label>
+        <input type=" verify_password" id=" veify_password">
+        <label for="verify_gender ">Male:</label>
+        <input id="  " type="radio" name="gender" required>
+        <label for="verify_gender ">Female:</label>
+        <input id="  " type="radio" name="gender" required>
+        <label for="verify_gender ">Other:</label>
+        <input id="vze  " type="radio" name="gender" required>
+        <input type="submit" value="Submit" id="sendbtn" required>
+    </form>
+</body>
+
+</html>
