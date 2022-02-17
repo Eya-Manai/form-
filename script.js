@@ -8,7 +8,7 @@ function isletter(ch) {
     return true;
 }
 
-function password(ch) {
+function checkPassword(ch) {
     var uperercase = false,
         lower = false,
         special = false,
@@ -29,22 +29,21 @@ function password(ch) {
 
 }
 
-const nom = document.getElementById("nom");
-const prenom = document.getElementById("prenom");
-const email = document.getElementById("email");
-const password = document.getElementById("password");
-const password2 = document.getElementById("verify_password");
-document.getElementById("sendbtn").addEventListener("click", function(event) {
 
-    event.preventDefault()
-});
 
-function verif() {
+document.getElementById("sendbtn").addEventListener("click", function (event) {
+    event.preventDefault();
+    const nom = document.getElementById("nom");
+    const prenom = document.getElementById("prenom");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const password2 = document.getElementById("verify_password");
     n = nom.value;
     p = prenom.value;
     e = email.value;
     pass = password.value;
     pass2 = password2.value;
+console.log(n,p,e,pass,pass2)
     if (isletter(n) == false) {
         alert("invalid name ");
         return false;
@@ -61,7 +60,7 @@ function verif() {
         alert("password must be more than 8 ");
         return false;
     }
-    if (password(pass)) {
+    if (checkPassword(pass)) {
         alert("password must have an Uppercae letter , lower case,special and number  ");
         return false;
     }
@@ -73,6 +72,7 @@ function verif() {
         alert("the password is not the same please verify again ")
         return false;
     }
+    window.location = "suc.html"
 
 
-}
+})
