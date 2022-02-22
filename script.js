@@ -82,7 +82,7 @@ document.getElementById("sendbtn").addEventListener("click", function(event) {
     }
     data = [n, p, e, x];
     add_element(data);
-
+    document.getElementById("form").reset();
 
 })
 
@@ -103,6 +103,30 @@ function add_element(data) {
     th.innerHTML = del;
     th.classList.add("del");
     th.addEventListener("click", delete_element);
+    a_edit = document.createElement("th");
+    a_edit.innerHTML = "edit";
+    a_edit.classList.add("edit");
+    a_edit.addEventListener("click", edit_element);
+    tr.appendChild(a_edit);
     tr.appendChild(th);
     tab[0].appendChild(tr);
+}
+
+function edit_element() {
+    const gender = document.getElementsByName("gender");
+    var parent = this.parentNode;
+    var childs = parent.children;
+    nom.value = childs[0].innerHTML;
+    prenom.value = childs[1].innerHTML;
+    email.value = childs[2].innerHTML;
+    if (childs[3].innerHTML == "male") {
+        gender[0].click();
+    } else if (childs[3].innerHTML == "female") {
+        gender[1].click();
+    } else {
+        gender[2].click();
+    }
+
+    parent.remove();
+
 }
