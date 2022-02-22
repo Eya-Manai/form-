@@ -8,7 +8,7 @@ function isletter(ch) {
     return true;
 }
 
-function password(ch) {
+function checkPassword(ch) {
     var uperercase = false,
         lower = false,
         special = false,
@@ -29,22 +29,22 @@ function password(ch) {
 
 }
 
-const nom = document.getElementById("nom");
-const prenom = document.getElementById("prenom");
-const email = document.getElementById("email");
-const password = document.getElementById("password");
-const password2 = document.getElementById("verify_password");
+
+
 document.getElementById("sendbtn").addEventListener("click", function(event) {
-
-    event.preventDefault()
-});
-
-function verif() {
+    event.preventDefault();
+    const nom = document.getElementById("nom");
+    const prenom = document.getElementById("prenom");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const password2 = document.getElementById("verify_password");
+    const gender = document.getElementsByName("gender");
     n = nom.value;
     p = prenom.value;
     e = email.value;
     pass = password.value;
     pass2 = password2.value;
+    console.log(n, p, e, pass, pass2)
     if (isletter(n) == false) {
         alert("invalid name ");
         return false;
@@ -61,7 +61,7 @@ function verif() {
         alert("password must be more than 8 ");
         return false;
     }
-    if (password(pass)) {
+    if (checkPassword(pass)) {
         alert("password must have an Uppercae letter , lower case,special and number  ");
         return false;
     }
@@ -73,6 +73,36 @@ function verif() {
         alert("the password is not the same please verify again ")
         return false;
     }
+    if (gender[0].checked) {
+        x = "Male";
+    } else if (gender[1].checked) {
+        x = "female";
+    } else {
+        x = "indefined"; //site accessible lel denya lo5ra XD
+    }
+    data = [n, p, e, x];
+    add_element(data);
 
 
+})
+
+function delete_element() {
+    this.parentNode.remove();
+}
+
+function add_element(data) {
+    const tab = document.getElementsByClassName("tab");
+    tr = document.createElement("tr");
+    data.forEach(function(val) {
+        th = document.createElement("th");
+        th.innerHTML = val;
+        tr.appendChild(th);
+    })
+    del = "delete";
+    th = document.createElement("th");
+    th.innerHTML = del;
+    th.classList.add("del");
+    th.addEventListener("click", delete_element);
+    tr.appendChild(th);
+    tab[0].appendChild(tr);
 }

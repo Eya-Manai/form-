@@ -5,7 +5,7 @@ body {
 
 form {
     max-width: 500px;
-    margin: 2rem auto;
+    margin: 2rem 10vw;
     border: 2px solid rgb(128, 43, 226);
     padding: 2rem;
     width: 100%;
@@ -36,4 +36,33 @@ input {
     width: auto;
     text-transform: uppercase;
     cursor: pointer;
+}
+
+.tab,
+.tab tr,
+.tab th {
+    border: 2px solid purple;
+    height: 50px;
+}
+
+.e-mail {
+    width: 10rem;
+}
+
+table {
+    border-collapse: separate;
+    margin-top: 25px;
+}
+
+.name {
+    width: 5rem;
+}
+
+.del {
+    cursor: pointer;
+    color: red;
+}
+
+.container {
+    display: flex;
 }
